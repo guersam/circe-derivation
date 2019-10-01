@@ -2,6 +2,7 @@ package io.circe
 
 import scala.language.experimental.macros
 
+@SuppressWarnings(Array("org.wartremover.warts.All"))
 package object derivation {
   final def deriveDecoder[A]: Decoder[A] = macro DerivationMacros.materializeDecoder[A]
   final def deriveEncoder[A]: Encoder.AsObject[A] = macro DerivationMacros.materializeEncoder[A]
